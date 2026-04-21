@@ -92,17 +92,39 @@ background:#121212;
 border-top:1px solid #2a2a2a;
 border-bottom:1px solid #2a2a2a;
 }
+/* ANIMATED GALLERY */
 .gallery{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
 gap:14px;
 margin-top:35px;
 }
+.gallery-item{
+position:relative;
+overflow:hidden;
+border-radius:10px;
+transform:translateY(20px);
+animation:fadeUp .8s ease forwards;
+opacity:0;
+}
+.gallery-item:nth-child(1){animation-delay:.1s;}
+.gallery-item:nth-child(2){animation-delay:.2s;}
+.gallery-item:nth-child(3){animation-delay:.3s;}
+.gallery-item:nth-child(4){animation-delay:.4s;}
 .gallery img{
 width:100%;
-border-radius:8px;
-object-fit:cover;
 height:260px;
+object-fit:cover;
+transition:transform .4s ease;
+}
+.gallery-item:hover img{
+transform:scale(1.08);
+}
+@keyframes fadeUp{
+to{
+opacity:1;
+transform:translateY(0);
+}
 }
 .caption{
 font-size:14px;
@@ -159,20 +181,20 @@ Debut EP <strong>If Manners Were Kind</strong> is on the way.
 <h2>Live Energy</h2>
 <p>Real moments from rehearsals, gigs and everything in between.</p>
 <div class="gallery">
-<div>
-<img src="hero.jpg">
+<div class="gallery-item">
+<img src="live1.jpg">
 <div class="caption">Stage energy</div>
 </div>
-<div>
-<img src="hero.jpg">
+<div class="gallery-item">
+<img src="live2.jpg">
 <div class="caption">Rehearsal chaos</div>
 </div>
-<div>
-<img src="hero.jpg">
+<div class="gallery-item">
+<img src="crowd1.jpg">
 <div class="caption">Crowd moments</div>
 </div>
-<div>
-<img src="hero.jpg">
+<div class="gallery-item">
+<img src="backstage.jpg">
 <div class="caption">Backstage</div>
 </div>
 </div>
@@ -187,6 +209,5 @@ Debut EP <strong>If Manners Were Kind</strong> is on the way.
 <footer>
 © The Left Leg Kickers
 </footer>
-
 </body>
 </html>
